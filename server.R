@@ -1,5 +1,6 @@
 library(shiny)
 library(shinydashboard)
+library(dplyr)
 
 source("R/functions.R")
 source("R/read-data.R")
@@ -24,7 +25,7 @@ server <- function(input, output, session) {
   })
   n_images <- reactive({
     tweets() %>%
-      mutate(n_images = map_int(images, ~sum(!is.na(.x$id)))) %>%
+      mutate(n_images = purrr::map_int(images, ~ sum(!is.na(.x$id)))) %>%
       pull(n_images) %>%
       sum()
   })
@@ -43,7 +44,7 @@ server <- function(input, output, session) {
     n_tweets <- length(id)
     withProgress(min = 0, max = n_tweets, message = "Getting tweets", {
       tibble::tibble(
-        tweets = map(id, embed_tweet)
+        tweets = purrr::map(id, embed_tweet)
       ) %>%
         DT::datatable(options = list(pageLength = 5))
     })
