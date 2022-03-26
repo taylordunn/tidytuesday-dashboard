@@ -87,15 +87,18 @@ server <- function(input, output, session) {
   # Info box ----------------------------------------------------------------
   output$info <- renderUI({
     htmltools::HTML(
-      "<p>This dashboard displays tweets using the #TidyTuesday hashtag.",
+      "<p>",
+      "This dashboard displays tweets using the #TidyTuesday hashtag.",
       "<a href='https://github.com/rfordatascience/tidytuesday'>Tidy Tuesday</a>",
       "is a weekly data project in which a raw data set is posted by the <a href='https://www.rfordatasci.com/'>R4DS community</a>",
       "for participants to explore, wrangle, analyze, and visualize (usually in R).</p>",
       "<p>",
       "The source code for this dashboard can be found <a href='https://github.com/taylordunn/tidytuesday-dashboard'>here</a>.",
       "The tweets are downloaded via the Twitter API and stored <a href='https://github.com/taylordunn/tidytuesday-scraper'>here</a>.",
+      "Data collection began late January 2022, so the earliest data set is Week 5 (dog breeds).",
       "</p>",
-      "<p>Created by <a href='https://tdunn.ca/'>Taylor Dunn</a>.",
+      "<p>",
+      "Created by <a href='https://tdunn.ca/'>Taylor Dunn</a>.",
       "Inspiration for this project came from Neal Grantham's <a href='https://shiny.rstudio.com/gallery/tidy-tuesday.html'>tidytuesday.rocks</a> app (which is no longer updated).",
       "Also helpful for writing the code were the",
       "<a href='https://shiny.rstudio.com/gallery/conference-tweet-dashboard.html'>rstudio::conf 2019</a> and",
