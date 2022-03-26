@@ -137,16 +137,4 @@ server <- function(input, output, session) {
   output$most_retweets_table_right <- DT::renderDataTable(most_retweets())
   output$most_recent_table_left <- DT::renderDataTable(most_recent())
   output$most_recent_table_right <- DT::renderDataTable(most_recent())
-  # output$tweets_embedded <- renderUI({
-  #   validate(
-  #     need(nrow(tweets_data) > 0,
-  #          paste("No tweets to display."))
-  #   )
-  #
-  #   tweets_data %>%
-  #     slice(1) %>%
-  #     pmap(get_tweet_blockquote) %>%
-  #     .[[1]] %>%
-  #     HTML()
-  # })
 }

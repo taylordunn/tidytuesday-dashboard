@@ -6,6 +6,10 @@ ui <- dashboardPage(
   dashboardHeader(title = "#TidyTuesday tweets"),
   dashboardSidebar(disable = TRUE),
   dashboardBody(
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
+    ),
+
     fluidRow(
       box(
         title = "Options", width = 4, height = 250,
@@ -40,7 +44,7 @@ ui <- dashboardPage(
                  DT::dataTableOutput("most_recent_table_left"))
       ),
       tabBox(
-        id = "tabbox_right", width = 6, selected = 2,
+        id = "tabbox_right", width = 6, selected = 3,
         tabPanel(icon("heart"), value = 1,
                  DT::dataTableOutput("most_favorites_table_right")),
         tabPanel(icon("retweet"), value = 2,
