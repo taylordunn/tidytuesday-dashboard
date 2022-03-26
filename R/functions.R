@@ -28,8 +28,3 @@ embed_tweet <- function(id) {
   class(tweet) <- c("tweet", class(tweet))
   tweet
 }
-
-#' Load and set the default font
-set_plotting_defaults <- function() {
-  sysfonts::font_add_google("Roboto Condensed", "roboto")
-}
