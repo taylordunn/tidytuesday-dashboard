@@ -2,10 +2,9 @@
 
 A Shiny dashboard compiling [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) tweets.
 
-It is currently being hosted on shinyapps.io here:
+It is currently being hosted on shinyapps.io here: https://taylor-dunn.shinyapps.io/tidytuesday-dashboard/.
 
-Tweets are scraped periodically using the Twitter API.
-The source code and data can be found here: https://github.com/taylordunn/tidytuesday-scraper/
+Tweets are scraped periodically using the Twitter API, for which the source code and data can be found here: https://github.com/taylordunn/tidytuesday-scraper/
 
 Inspiration and code borrowed from the following sources:
 
