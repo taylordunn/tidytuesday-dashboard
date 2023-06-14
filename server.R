@@ -18,14 +18,14 @@ server <- function(input, output, session) {
 
   tidytuesday_datasets <- reactive({
     get_tidytuesday_datasets() %>%
-      filter(date > min(tweets()$created_at))
+      filter(date > as.Date(min(tweets()$created_at)))
   })
 
   # Tweet options -----------------------------------------------------------
   tweets_selected <- reactive({
     tweets() %>%
-      filter(created_at >= input$tweets_date_range[1],
-             created_at < input$tweets_date_range[2])
+      filter(as.Date(created_at) >= as.Date(input$tweets_date_range[1]),
+             as.Date(created_at) < as.Date(input$tweets_date_range[2]))
   })
 
   observe({
@@ -36,7 +36,8 @@ server <- function(input, output, session) {
   observe({
     start_date <- tidytuesday_datasets() %>%
       filter(week_data == input$tidytuesday_data_select) %>%
-      pull(date)
+      pull(date) %>%
+      as.Date()
     max_date <- as.Date(max(tweets()$created_at)) + 1
     end_date <- min(c(start_date + 6, max_date))
 
